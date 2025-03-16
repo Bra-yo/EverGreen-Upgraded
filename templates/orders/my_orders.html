@@ -1,0 +1,20 @@
+{% extend 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+  {% for order in orders %}
+    <tr>
+      <td>{{ order.house.name }}</td>
+      <td>{{ order.status }}</td>
+      <td>
+        {% if user.is_salesperson and order.status == 'pending' %}
+          <button>Approve</button>
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+{% endif %}
+
+{% endblock %}

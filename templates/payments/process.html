@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container py-5">
+    <!-- Payment Header -->
+    <h1 class="mb-4">Complete Your Payment</h1>
+
+    <div class="row">
+        <!-- Payment Methods Column -->
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Select Payment Method</h4>
+                </div>
+
+                <div class="card-body">
+                    <form method="post" id="paymentForm">
+                        {% csrf_token %}
+
+                        <!-- Payment Method Selection -->
+                        <div class="form-group">
+                            <div class="list-group">
+                                <!-- M-Pesa Option -->
+                                <label class="list-group-item">
+                                    <input type="radio" name="payment_method" value="mpesa" required
+                                           class="form-check-input me-2">
+                                    <i class="fas fa-mobile-alt me-2"></i>
+                                    M-Pesa Mobile Payment
+                                    <span class="badge bg-success ms-2">Recommended</span>
+                                </label>
+
+                                <!-- PayPal Option -->
+                                <label class="list-group-item">
+                                    <input type="radio" name="payment_method" value="paypal"
+                                           class="form-check-input me-2">
+                                    <i class="fab fa-paypal me-2"></i>
+                                    PayPal
+                                </label>
+
+                                <!-- Bank Transfer Options -->
+                                <label class="list-group-item">
+                                    <input type="radio" name="payment_method" value="kcb"
+                                           class="form-check-input me-2">
+                                    <img src="{% static 'img/kcb-logo.png' %}" alt="KCB"
+                                         style="height:20px" class="me-2">
+                                    KCB Bank Transfer
+                                </label>
+
+                                <label class="list-group-item">
+                                    <input type="radio" name="payment_method" value="equity"
+                                           class="form-check-input me-2">
+                                    <img src="{% static 'img/equity-logo.png' %}" alt="Equity"
+                                         style="height:20px" class="me-2">
+                                    Equity Bank Transfer
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Form Sections -->
+                        <!-- M-Pesa Form -->
+                        <div id="mpesaDetails" class="payment-details" style="display:none;">
+                            <div class="mt-4 p-3 border rounded">
+                                <h5><i class="fas fa-info-circle me-2"></i>M-Pesa Instructions</h5>
+                                <ol>
+                                    <li>Enter your M-Pesa registered phone number</li>
+                                    <li>Check your phone for STK Push prompt</li>
+                                    <li>Enter your M-Pesa PIN to complete</li>
+                                </ol>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" name="mpesa_phone" class="form-control"
+                                           placeholder="07XXXXXXXX" pattern="[0-9]{10}" required>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Payment Request
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- PayPal Form -->
+                        <div id="paypalDetails" class="payment-details" style="display:none;">
+                            <div class="mt-4 p-3 border rounded">
+                                <div id="paypal-button-container" class="my-3"></div>
+                                <p class="text-muted small">
+                                    <i class="fas fa-lock me-2"></i>
+                                    Secure payment processing by PayPal
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Bank Transfer Form -->
+                        <div id="bankDetails" class="payment-details" style="display:none;">
+                            <div class="mt-4 p-3 border rounded">
+                                <h5><i class="fas fa-university me-2"></i>Bank Transfer Details</h5>
+                                <div class="mb-3">
+                                    <label class="form-label">Account Number</label>
+                                    <input type="text" name="account_number" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Bank Password</label>
+                                    <input type="password" name="bank_password" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-check-circle me-2"></i>Authorize Payment
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary Column -->
+        <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="card shadow">
+                <div class="card-header bg-secondary text-white">
+                    <h4 class="mb-0">Order Summary</h4>
+                </div>
+                <div class="card-body">
+                    <h5>{{ property.name }}</h5>
+                    <hr>
+                    <dl class="row">
+                        <dt class="col-6">Property ID:</dt>
+                        <dd class="col-6 text-end">#{{ property.id }}</dd>
+
+                        <dt class="col-6">Price:</dt>
+                        <dd class="col-6 text-end">Ksh {{ property.price }}</dd>
+
+                        <dt class="col-6">VAT (16%):</dt>
+                        <dd class="col-6 text-end">Ksh {{ property.vat }}</dd>
+
+                        <dt class="col-6">Total:</dt>
+                        <dd class="col-6 text-end fw-bold">Ksh {{ property.total_price }}</dd>
+                    </dl>
+                    <div class="alert alert-warning small">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        Payments are processed securely. All amounts in Kenyan Shillings.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript Handling -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const forms = {
+        mpesa: document.getElementById('mpesaDetails'),
+        paypal: document.getElementById('paypalDetails'),
+        kcb: document.getElementById('bankDetails'),
+        equity: document.getElementById('bankDetails')
+    };
+
+    document.querySelectorAll('input[name="payment_method"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            // Hide all forms
+            Object.values(forms).forEach(form => form.style.display = 'none');
+
+            // Show selected form
+            if(this.value in forms) {
+                forms[this.value].style.display = 'block';
+            }
+        });
+    });
+});
+</script>
+
+<!-- Styles -->
+<style>
+.payment-details {
+    transition: all 0.3s ease;
+}
+.list-group-item {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+</style>
+{% endblock %}
