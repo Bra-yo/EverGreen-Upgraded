@@ -27,7 +27,7 @@ class Order(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['user', 'property'],
+                fields=['user', 'house'],
                 condition=models.Q(status='pending'),
                 name='unique_pending_order_per_property'
             )

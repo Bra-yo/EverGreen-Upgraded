@@ -236,8 +236,11 @@ BANK_APIS = {
 
 # settings.py
 
-AUTH_USER_MODEL = 'users.Userprofile'
-
+AUTH_USER_MODEL = 'users.UserProfile'  # Critical for custom user model
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # For email-based auth
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
 
 # Configure redirects
 LOGIN_REDIRECT_URL = '/'

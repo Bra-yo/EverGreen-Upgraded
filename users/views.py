@@ -7,7 +7,7 @@ from pyexpat.errors import messages
 from django.http import HttpResponse
 
 
-from .models import CustomUser
+from .models import UserProfile
 
 
 
@@ -31,20 +31,28 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def custom_login(request):
+def custom_login(request, identifier=None):
     logger.debug("Login view called")
 
     if request.method == 'POST':
         logger.debug("POST request received")
 
         # Get username and password from the POST request
-        username = request.POST.get('username')
+        identifier = request.POST.get('username')
         password = request.POST.get('password')
 
-        logger.debug(f"Attempting to authenticate user: {username}")
+        logger.debug(f"Attempting to authenticate user: {identifier}")
 
         # Authenticate the user
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(
+            request,
+            email=identifier,
+            password=password
+        ) or authenticate(
+            request,
+            username=identifier,
+            password=password
+        )
 
         if user is not None:
             logger.debug("User authenticated successfully")
@@ -58,4 +66,6 @@ def custom_login(request):
     # Handle GET requests (display the login form)
     logger.debug("GET request received")
     return render(request, 'registration/login.html')
+
+
 

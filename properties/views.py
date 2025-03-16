@@ -1,11 +1,10 @@
 from django.shortcuts import render
-
-from django.shortcuts import render
-from .models import Property  # Import your model
+from .models import House  # Changed from Property
 
 def services(request):
-    properties = Property.objects.all()
-    return render(request, 'properties/services.html', {'properties': properties})
+    houses = House.objects.all()
+    return render(request, 'properties/services.html', {'houses': houses})
+
 def home(request):
-    properties = Property.objects.all()
-    return render(request,'index.html')
+    houses = House.objects.all()
+    return render(request, 'index.html', {'houses': houses})
