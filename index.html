@@ -1,0 +1,509 @@
+<!----INDEX.HTML PROJECT--->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - EverGreen Estates</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+    {% load static %}
+
+  <!-- Favicons -->
+  <link href={% static 'assets/img/favicon.png' %} rel="icon">
+  <link href={% static 'assets/img/apple-touch-icon.png' %} rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href={% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %} rel="stylesheet">
+  <link href={% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %} rel="stylesheet">
+  <link href={% static 'assets/vendor/aos/aos.css' %} rel="stylesheet">
+  <link href={% static 'assets/vendor/fontawesome-free/css/all.min.css' %} rel="stylesheet">
+  <link href={% static 'assets/vendor/swiper/swiper-bundle.min.css' %} rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href={% static 'assets/css/main.css' %} rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: EstateAgency
+  * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+  * Updated: Aug 09 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">EverGreen<span>Estates</span></h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="agents.html">Agents</a></li>
+          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-item active">
+          <img src={% static 'assets/img/hero-carousel/hero-carousel-1.jpg' %} alt="">
+          <div class="carousel-container">
+            <div>
+              <p>Nairobi</p>
+              <h2><span>204</span> Westlands</h2>
+              <a href="property-single.html" class="btn-get-started">rent | ksh 1.200.000</a>
+            </div>
+          </div>
+        </div><!-- End Carousel Item -->
+
+        <div class="carousel-item">
+          <img src={% static 'assets/img/hero-carousel/hero-carousel-2.jpg' %} alt="">
+          <div class="carousel-container">
+            <div>
+              <p>Nairobi</p>
+              <h2><span>247</span> Karen</h2>
+              <a href="property-single.html" class="btn-get-started">sale | ksh 35.600.000</a>
+            </div>
+          </div>
+        </div><!-- End Carousel Item -->
+
+        <div class="carousel-item">
+          <img src={% static 'assets/img/hero-carousel/hero-carousel-3.jpg' %} alt="">
+          <div class="carousel-container">
+            <div>
+              <p>Nairobi</p>
+              <h2><span>247</span> Kilimani</h2>
+              <a href="property-single.html" class="btn-get-started">rent | ksh 300.000</a>
+            </div>
+          </div>
+        </div><!-- End Carousel Item -->
+
+        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+        <ol class="carousel-indicators"></ol>
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our Services</h2>
+        <p>Evergreen Estates offers a comprehensive range of real estate services designed to meet the diverse needs of our clients. Our services include residential sales, property lettings, and expert property management. Whether you're looking to buy, sell, rent, or need professional management for your investment properties, our experienced team provides personalized support every step of the way. With a strong focus on customer satisfaction and a deep understanding of the local market, Evergreen Estates ensures a smooth, efficient, and stress-free real estate experience.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item  position-relative">
+              <div class="icon">
+                <i class="bi bi-activity"></i>
+              </div>
+              <a href="service-details.html" class="stretched-link">
+                <h3>Residential Sales</h3>
+              </a>
+              <p>Evergreen Estates helps clients buy and sell residential properties with ease. Our team provides expert advice, handles negotiations, and ensures smooth transactions, whether you're a first-time buyer or an experienced investor.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-broadcast"></i>
+              </div>
+              <a href="service-details.html" class="stretched-link">
+                <h3>Property Lettings</h3>
+              </a>
+              <p>We offer professional letting services for landlords and tenants. Our team assists in finding the right tenants for your property and ensures all legal requirements are met, offering peace of mind for both parties.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-easel"></i>
+              </div>
+              <a href="service-details.html" class="stretched-link">
+                <h3>Property Management</h3>
+              </a>
+              <p>Our property management service takes the stress out of managing your investment property. From tenant screenings and rent collection to property maintenance, we handle every aspect of property management efficiently.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-bounding-box-circles"></i>
+              </div>
+              <a href="service-details.html" class="stretched-link">
+                <h3>Valuations and Market Appraisals</h3>
+              </a>
+              <p>At Evergreen Estates, we provide accurate property valuations and market appraisals to help sellers, buyers, and investors make informed decisions. Our expert team uses local market knowledge to give you the most up-to-date insights.</p>
+              <a href="service-details.html" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-calendar4-week"></i>
+              </div>
+              <a href="service-details.html" class="stretched-link">
+                <h3>Investment Consultancy</h3>
+              </a>
+              <p>We offer consultancy services for property investors, helping them find the best opportunities based on their goals. Whether you’re looking for residential or commercial properties, we guide you through the process of building and managing a profitable portfolio.</p>
+              <a href="service-details.html" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-chat-square-text"></i>
+              </div>
+              <a href="service-details.html" class="stretched-link">
+                <h3>Commercial Property Services</h3>
+              </a>
+              <p>Evergreen Estates also specializes in commercial real estate, assisting businesses with buying, selling, or leasing office spaces, retail outlets, and industrial properties. We ensure the process is tailored to your specific business needs.</p>
+              <a href="service-details.html" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Agents Section -->
+    <section id="agents" class="agents section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our Agents</h2>
+        <p>The agents at Evergreen Estates are dedicated professionals with a deep knowledge of the local property market. Each agent is committed to providing exceptional service, whether they’re helping clients buy, sell, rent, or manage properties. They are experts in understanding clients' unique needs and guiding them through every step of the process with personalized advice and proactive support. Known for their integrity and professionalism, our agents work tirelessly to ensure a smooth, efficient experience and deliver the best possible outcomes for every client.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src={% static 'assets/img/team/team-1.jpg' %} class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Walter White</h4>
+                <span>Chief Executive Officer</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="pic"><img src={% static 'assets/img/team/team-2.jpg' %} class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Rent Manager</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic"><img src={% static 'assets/img/team/team-3.jpg' %} class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>Sale manager<br></span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Agents Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>"I had the pleasure of working with Evergreen Estates when selling my property, and I couldn't be more impressed with their service. From the initial consultation to the final sale, the team was incredibly professional, knowledgeable, and attentive to my needs. They kept me informed at every step and made the entire process smooth and stress-free. Their expertise in the market and commitment to getting the best deal for me really stood out. I highly recommend Evergreen Estates to anyone looking for a trustworthy and reliable real estate company!" – Sarah T.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 1
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  "Working with Evergreen Estates was an absolute pleasure. As a first-time buyer, I had a lot of questions, and their team went above and beyond to guide me through the process. They were patient, professional, and always available to offer advice whenever I needed it. I felt supported and confident in every decision I made. Thanks to their expertise, I found my dream home and the experience was seamless from start to finish. I highly recommend Evergreen Estates for anyone looking to buy or sell property!" – James R.
+                </p>
+                <div class="profile mt-auto">
+                  <img src={% static 'assets/img/testimonials/testimonials-1.jpg' %} class="testimonial-img" alt="">
+                  <h3>Saul Goodman</h3>
+                  <h4>Ceo &amp; Founder</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  "Evergreen Estates made renting out my property a completely hassle-free experience. Their team handled everything from finding reliable tenants to managing the paperwork and ensuring all legal requirements were met. I was kept in the loop throughout the entire process, and their attention to detail gave me peace of mind knowing my property was in good hands. I truly appreciate their professionalism and dedication, and I wouldn't hesitate to recommend their services to anyone in need of property management." – Linda M.
+                </p>
+                <div class="profile mt-auto">
+                  <img src={% static 'assets/img/testimonials/testimonials-2.jpg' %} class="testimonial-img" alt="">
+                  <h3>Sara Wilsson</h3>
+                  <h4>Designer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  "I couldn't be happier with the service I received from Evergreen Estates. As a first-time seller, I was nervous about the whole process, but their team made everything so easy. They were professional, knowledgeable, and always had my best interests in mind. From the property valuation to negotiating the sale, they were there every step of the way, and I ended up getting a great price for my home. I highly recommend Evergreen Estates to anyone looking for a trustworthy and dedicated real estate team!" – David P.
+                </p>
+                <div class="profile mt-auto">
+                  <img src={% static 'assets/img/testimonials/testimonials-3.jpg' %} class="testimonial-img" alt="">
+                  <h3>Jena Karlis</h3>
+                  <h4>Store Owner</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  "Evergreen Estates made my experience as a landlord effortless and stress-free. Their team took care of everything—from finding reliable tenants to managing the property with great attention to detail. I always felt informed and confident that my investment was in good hands. The level of professionalism and customer service they provide is exceptional. I highly recommend Evergreen Estates to anyone looking for top-quality property management and real estate services!" – Sophia L.
+                </p>
+                <div class="profile mt-auto">
+                  <img src={% static 'assets/img/testimonials/testimonials-4.jpg' %} class="testimonial-img" alt="">
+                  <h3>Matt Brandon</h3>
+                  <h4>Freelancer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  "Working with Evergreen Estates was a fantastic experience from start to finish. Their team helped me find the perfect home in no time, and they were always there to answer any questions I had along the way. Their knowledge of the local market and dedication to client satisfaction truly set them apart. I felt like I was in great hands throughout the entire process, and I couldn’t be happier with my new home. I highly recommend Evergreen Estates to anyone looking for a reliable, professional real estate agency!" – Tom W.</p>
+                <div class="profile mt-auto">
+                  <img src={% static 'assets/img/testimonials/testimonials-5.jpg' %} class="testimonial-img" alt="">
+                  <h3>John Larson</h3>
+                  <h4>Entrepreneur</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>Ngong RD</p>
+            <p>Nairobi</p>
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>+254757752109</span><br>
+              <strong>Email:</strong> <span>evergreen@gmail.com</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
+              <strong>Sunday</strong>: <span>Closed</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>©️ <span>Copyright</span> <strong class="px-1 sitename">EverGreen</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">EverGreen Estates</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src={% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}></script>
+  <script src={% static 'assets/vendor/php-email-form/validate.js' %}></script>
+  <script src={% static 'assets/vendor/aos/aos.js' %}></script>
+  <script src={% static 'assets/vendor/swiper/swiper-bundle.min.js' %}></script>
+  <script src={% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}></script>
+
+  <!-- Main JS File -->
+  <script src={% static 'assets/js/main.js' %}></script>
+
+</body>
+
+</html>
