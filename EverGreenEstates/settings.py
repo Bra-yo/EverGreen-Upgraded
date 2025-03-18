@@ -10,10 +10,6 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']  # Add your domain
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -69,7 +65,7 @@ ROOT_URLCONF = 'EverGreenEstates.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,7 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [
+    BASE_DIR, 'static',]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -144,63 +141,13 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
-
-'google': {
-
-'APP': {
-
-'client_id': os.getenv('GOOGLE_CLIENT_ID'),
-
-'secret': os.getenv('GOOGLE_SECRET'),
-
-}
-
-},
-
-'facebook': {
-
-'APP': {
-
-'client_id': os.getenv('FACEBOOK_CLIENT_ID'),
-
-'secret': os.getenv('FACEBOOK_SECRET'),
-
-},
-
-'METHOD': 'oauth2',
-
-'SCOPE': ['email', 'public_profile'],
-
-'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-
-},
-
-'twitter': {
-
-'APP': {
-
-'client_id': os.getenv('TWITTER_CLIENT_ID'),
-
-'secret': os.getenv('TWITTER_SECRET'),
-
-}
-
-},
-
-# Add Instagram if needed
-
-'instagram': {
-
-'APP': {
-
-'client_id': os.getenv('INSTAGRAM_CLIENT_ID'),
-
-'secret': os.getenv('INSTAGRAM_SECRET'),
-
-}
-
-}
-
+    'google': {
+        'APP': {
+            'client_id': 'your-google-client-id',
+            'secret': 'your-google-secret',
+        }
+    },
+    # Similar config for other providers
 }
 
 
@@ -236,11 +183,8 @@ BANK_APIS = {
 
 # settings.py
 
-AUTH_USER_MODEL = 'users.UserProfile'  # Critical for custom user model
-ACCOUNT_AUTHENTICATION_METHOD = 'email'  # For email-based auth
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
+AUTH_USER_MODEL = 'users.CustomUser'
+
 
 # Configure redirects
 LOGIN_REDIRECT_URL = '/'
@@ -273,7 +217,3 @@ LOGGING = {
         },
     },
 }
-
-# Add to bottom of settings.py:
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
